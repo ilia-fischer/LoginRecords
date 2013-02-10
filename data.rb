@@ -3,7 +3,7 @@ require 'dm-timestamps'
 require 'dm-validations'
 require 'dm-migrations'
 
-DataMapper.setup(:default, "sqlite://#{Dir.pwd}/LoginRecords.sqlite3")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/LoginRecords.sqlite3")
 
 class LoginEntry
   include DataMapper::Resource
